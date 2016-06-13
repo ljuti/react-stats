@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import PlatformStats from '../components/PlatformStats.jsx'
+
 import * as viewActions from '../redux/actions/view';
 import * as platformActions from '../redux/actions/platform';
 
@@ -20,15 +22,23 @@ class Platform extends Component {
     const { view } = this.props;
     const platformStatistics = this.props.platform.stats;
     const platformTotal = this.props.platform.total;
+    const platform = capitalize(this.props.params.platform);
 
     return (
       <div class="stats-base">
-        <h2>Platform</h2>
-        { platformTotal }
+        <h2>Platform statistics for { platform }</h2>
+        <PlatformStats statistics={ platformStatistics } />
+        <p>
+          Total: { platformTotal }
+        </p>
       </div>
     )
   }
 };
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function mapStateToProps(state) {
   return {

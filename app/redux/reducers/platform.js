@@ -17,7 +17,7 @@ export default function reducer(state = initialState, action = {}) {
       const platformTotal = action.payload.total;
       const other = {
         key: 'other',
-        result: action.payload.other
+        value: action.payload.other
       }
 
       delete action.payload.total;
