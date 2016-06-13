@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './redux/store/configureStore.jsx';
-import Root from './redux/containers/Root.jsx';
+import Root from './containers/Root.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 let store;

@@ -3,7 +3,7 @@ import { syncHistory, routeReducer } from 'redux-simple-router';
 import { browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import rootReducer from '../modules';
+import rootReducer from '../reducers';
 
 const logger = createLogger();
 
@@ -18,8 +18,8 @@ export default function configureStore(initialState) {
   const store = finalCreateStore(rootReducer, initialState);
 
   if (module.hot) {
-    module.hot.accept('../modules', () => {
-      const nextRootReducer = require('../modules');
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers');
       store.replaceReducer(nextRootReducer);
     });
   }

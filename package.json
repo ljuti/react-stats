@@ -29,7 +29,12 @@
   },
   "devDependencies": {
     "babel-preset-stage-0": "6.3.13",
+    "memory-fs": "^0.3.0",
+    "node-pow": "0.0.2",
+    "q": "^1.4.1",
+    "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
+    "reqwest": "^2.0.5",
     "rimraf": "^2.5.2",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.6.1",
