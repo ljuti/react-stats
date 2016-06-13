@@ -13,3 +13,6 @@ To run the application, run
 ```shell
 % npm start
 ```
+
+The application depends on hanami-stats API being up and running
+at [http://localhost:2300/](http://localhost:2300/).
