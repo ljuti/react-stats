@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import ReactTransitionGroup from 'react-addons-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,49 +6,25 @@ import * as viewActions from '../redux/actions/view';
 import * as platformActions from '../redux/actions/platform';
 
 class Platform extends Component {
-  constructor() {
-    super();
-    this._handleResize = this._handleResize.bind(this);
-  },
-
-  _handleResize(e) {
-    this.setState({ windowWidth: window.innerWidth });
-  }
-
   componentWillMount() {
-    this.props.fetchPlatformTotals();
-  },
-
-  componentDidMount() {
-    window.addEventListener('resize', this._handleResize);
-    this.setState({ windowWidth: window.innerWidth });
-  },
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this._handleResize);
-  },
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.stats.fetching && !nextProps.stats.fetching) {
-      setTimeout(() => {
-        this.props.fetchPlatformTotals(0)
-      }, 10000);
-    }
-  },
+    this.props.fetchPlatformStatistics(this.props.params.platform);
+  }
 
   _renderProgressIndicator(isActive) {
     return (
       <div></div>
     );
-  },
+  }
 
   render() {
-    const { stats, view } = this.props;
-    const progressIndicator = this._renderProgressIndicator(stats.fetching);
+    const { view } = this.props;
+    const platformStatistics = this.props.platform.stats;
+    const platformTotal = this.props.platform.total;
 
     return (
       <div class="stats-base">
         <h2>Platform</h2>
+        { platformTotal }
       </div>
     )
   }
@@ -58,6 +33,7 @@ class Platform extends Component {
 function mapStateToProps(state) {
   return {
     stats: state.stats,
+    platform: state.platform,
     view: state.view
   }
 }
@@ -65,9 +41,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     ...viewActions,
-    ...ticketActions
+    ...platformActions
   },
   dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Platform);

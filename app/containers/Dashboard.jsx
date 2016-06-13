@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import TotalStats from '../components/TotalStats.jsx';
+
 import * as viewActions from '../redux/actions/view';
 import * as statsActions from '../redux/actions/stats';
 import * as platformActions from '../redux/actions/platform';
@@ -33,6 +35,7 @@ class Dashboard extends Component {
     return (
       <div class="stats-base">
         <h2>Dashboard</h2>
+        <TotalStats totals={ stats } />
       </div>
     )
   }
@@ -48,7 +51,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     ...viewActions,
-    ...ticketActions
+    ...statsActions
   },
   dispatch);
 }

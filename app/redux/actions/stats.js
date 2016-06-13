@@ -10,8 +10,7 @@ export function fetchPlatformTotals() {
 
     API.fetchPlatformTotals()
     .then((response) => {
-      const { data } = response;
-      dispatch(fetchPlatformTotalsSuccess(data));
+      dispatch(fetchPlatformTotalsSuccess(response));
     })
   }
 }

@@ -11,7 +11,7 @@ class App extends Component {
     const { view } = this.props;
     return (
       <div>
-        <h1>Foo</h1>
+        { this.props.children }
       </div>
     );
   }
@@ -23,8 +23,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
