@@ -13,12 +13,6 @@ export default function reducer(state = initialState, action = {}) {
         fetching: true
       }
     case actionTypes.FETCH_PLATFORM_TOTALS_SUCCESS:
-      console.dir(action);
-      // const platformTotals = [{
-      //   android: action.payload.android,
-      //   ios: action.payload.ios,
-      //   'windows-phone': action.payload['windows-phone']
-      // }]
       const platformTotals = [
         {
           platform: 'android',
@@ -29,7 +23,7 @@ export default function reducer(state = initialState, action = {}) {
           total: action.payload.ios
         },
         {
-          platform: 'windows',
+          platform: 'windows-phone',
           total: action.payload['windows-phone']
         }
       ]

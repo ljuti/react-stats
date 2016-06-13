@@ -7,8 +7,6 @@ export default class PlatformStats extends Component {
       statistics
     } = this.props;
 
-    console.dir(statistics);
-
     const statRows = statistics.map((stat) => {
       return (
         <tr key={stat.key}>
@@ -19,7 +17,7 @@ export default class PlatformStats extends Component {
     })
 
     return (
-      <table>
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>Version</th>

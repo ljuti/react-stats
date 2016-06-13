@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -31,6 +32,7 @@ class Platform extends Component {
         <p>
           Total: { platformTotal }
         </p>
+        <Link to={ "/stats" }><button class="button">Back</button></Link>
       </div>
     )
   }

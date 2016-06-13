@@ -34,7 +34,7 @@ class Dashboard extends Component {
 
     return (
       <div class="stats-base">
-        <h2>Dashboard</h2>
+        <h2>Platform Statistics</h2>
         <TotalStats totals={ stats } />
       </div>
     )
